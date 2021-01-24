@@ -18,10 +18,11 @@ class App extends Component {
 
   deletePersonHandler = (personIndex) => {
     // debugger
+    console.log(personIndex)
     // const persons = this.state.persons.slice();
-    const newPersons = [...this.state.persons];
-    newPersons.splice(personIndex, 1);
-    this.setState({persons: newPersons});
+    const newPersonsArray = [...this.state.persons];
+    newPersonsArray.splice(personIndex, 1);
+    this.setState({persons: newPersonsArray});
   }
 
   togglePersonHandler = () => {
@@ -46,16 +47,18 @@ class App extends Component {
       )
     })
 
-    const person = {
-      ...this.state.persons[personIndex]
-    }
-    
-    person.name = event.target.value;
-    const persons = [...this.state.persons];
-    persons[personIndex] = person;
+    const newPersonsArray = [...this.state.persons];
+    newPersonsArray[personIndex].name = event.target.value;
+
+    // const updatedPerson = {
+    //   ...this.state.persons[personIndex]
+    // }
+
+    // updatedPerson.name = event.target.value;
+    // newPersonsArray[personIndex] = updatedPerson;
 
     this.setState({
-        persons: persons
+        persons: newPersonsArray
     });
   }
 
