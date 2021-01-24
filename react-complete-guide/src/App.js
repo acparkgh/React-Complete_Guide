@@ -46,19 +46,18 @@ class App extends Component {
         eachPerson.id === personId
       )
     })
+    // newPersonsArray[personIndex].name = event.target.value;
+    const updatedPerson = {
+      ...this.state.persons[personIndex]
+    }
+    debugger
+    updatedPerson.name = event.target.value;
 
     const newPersonsArray = [...this.state.persons];
-    newPersonsArray[personIndex].name = event.target.value;
-
-    // const updatedPerson = {
-    //   ...this.state.persons[personIndex]
-    // }
-
-    // updatedPerson.name = event.target.value;
-    // newPersonsArray[personIndex] = updatedPerson;
-
+    newPersonsArray[personIndex] = updatedPerson;
+    debugger
     this.setState({
-        persons: newPersonsArray
+      persons: newPersonsArray
     });
   }
 
