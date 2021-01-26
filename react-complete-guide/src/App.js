@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
- 
+// import styled from 'styled-components';
+// import Radium, {StyleRoot} from 'radium';
+
+
 
 class App extends Component {
   // constructor() {
@@ -68,7 +71,13 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'red'
+
+      }
+
     }
 
     let persons = null;
@@ -90,6 +99,10 @@ class App extends Component {
         </div> 
       );
       buttonStyle.backgroundColor = 'red';
+      buttonStyle[':hover'] = {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     }
     
     const classes = [];
@@ -103,16 +116,16 @@ class App extends Component {
     }
     
     return (
-      <div className="App">
-        <h1>Hi, I am a React App</h1>
-        <p className={classes.join(' ')} >This is really working!</p>
-        <button onClick={this.togglePersonHandler} 
-                style={buttonStyle}
-        >
-          Show Persons
-        </button>
-        {persons}
-      </div>
+      
+        <div className="App">
+          <h1>Hi, I am a React App</h1>
+          <p className={classes.join(' ')} >This is really working!</p>
+          <button className="button" >
+            Show Persons
+          </button>
+          {persons}
+        </div>
+      
     );
   }
 }
